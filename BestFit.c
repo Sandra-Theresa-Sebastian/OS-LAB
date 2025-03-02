@@ -1,28 +1,23 @@
 #include <stdio.h>
-
 int main() {
-    int memblock, limit, i, j;
-
-    printf("\t\t BEST FIT\t\n");
-    printf("Enter the number of memory blocks: ");
-    scanf("%d", &memblock);
-
-    struct memory {
-        int size, alloc;
-    } m[memblock];
-
-    printf("Enter the size of memory block:\n");
-    for(i = 0; i < memblock; i++) {
-        scanf("%d", &m[i].size);
-        m[i].alloc = 0;
-    }
-
-    for(i = 0; i < memblock; i++) {
-        for(j = i + 1; j < memblock; j++) {
-            if(m[i].size >= m[j].size) {
-                int temp = m[i].size;
-                m[i].size = m[j].size;
-                m[j].size = temp;
+int memblock, limit, i, j;
+printf("\t\t BEST FIT\t\n");
+printf("Enter the number of memory blocks: ");
+scanf("%d", &memblock);
+struct memory {
+int size, alloc;
+} m[memblock];
+printf("Enter the size of memory block:\n");
+for(i = 0; i < memblock; i++) {
+scanf("%d", &m[i].size);
+m[i].alloc = 0;
+}
+for(i = 0; i < memblock; i++) {
+for(j = i + 1; j < memblock; j++) {
+if(m[i].size >= m[j].size) {
+int temp = m[i].size;
+m[i].size = m[j].size;
+m[j].size = temp;
             }
         }
     }
